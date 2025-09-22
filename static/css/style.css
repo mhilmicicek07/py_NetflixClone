@@ -12,12 +12,6 @@
     height: 700px;
 }
 
-.select-icin {
-    width: 126px;
-    height: 32px;
-
-}
-
 .button-ıcın {
     height: 32px !important;
     padding: 0px 10px !important;
@@ -137,7 +131,6 @@ footer a {
 
 .profiles a {
     color: gray;
-
 }
 
 .profiles:hover {
@@ -182,7 +175,7 @@ hr {
 
 #profile-manage #manage{
     opacity: 0;
-    animation: fade .3s linear 1 forwards; /* forwards => animasyonun sonuna kadar gidip kalması için */
+    animation: fade .3s linear 1 forwards;
 }
 
 @keyframes fade {
@@ -282,4 +275,77 @@ hr {
 
 #turler-navbar li:hover{
     color:black !important;
+}
+
+/* --- ÖZEL AÇILIR MENÜ İÇİN EKLENEN KODLAR --- */
+
+/* Asıl select menüsünü tamamen gizliyoruz */
+.original-language-select {
+    display: none;
+}
+
+/* Özel menümüzün ana kapsayıcısı */
+.custom-select-wrapper {
+    position: relative;
+    width: 126px; /* Orijinal boyutunuzu koruyoruz */
+    color: white;
+    font-size: 1rem; /* Bootstrap'in fs-5'ine yakın bir değer */
+}
+
+/* Seçili olan değeri gösterecek olan kutu */
+.select-selected {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid #888;
+    border-radius: 4px; /* Bootstrap'in rounded-2'sine yakın */
+    padding: 4px 12px 4px 30px; /* Sola ikonu için yer açtık */
+    height: 32px; /* Orijinal boyutunuzu koruyoruz */
+    cursor: pointer;
+    user-select: none; /* Metnin seçilmesini engeller */
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+/* Dünya ikonunu CSS ile ekliyoruz */
+.select-selected::before {
+    font-family: "Font Awesome 6 Free"; /* Projenizde Font Awesome kullanılıyor */
+    font-weight: 900;
+    content: "\f0ac"; /* Dünya ikonu unicode'u */
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px; /* İkon boyutunu ayarlayabilirsiniz */
+}
+
+/* Seçenekleri içeren ve normalde gizli olan kutu */
+.select-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border: 1px solid #888;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7); /* İstediğiniz gibi transparan */
+    /* backdrop-filter: blur(5px); Arka planı bulanıklaştıran güzel bir efekt */
+}
+
+/* Seçenekleri gizlemek için kullanılan class */
+.select-hide {
+    display: none;
+}
+
+/* Her bir seçenek */
+.select-items div {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Üzerine gelince mavi olmasın, onun yerine bu olsun */
+.select-items div:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Hafif beyaz bir vurgu */
 }

@@ -6,15 +6,22 @@
                 <img src="{% static "img/netflix_logo.png" %}" class="resim" alt="">
             </a>
             {% if request.path == '/' %}
-                <div class="d-flex gap-2 position-relative">
+                <div class="d-flex gap-2 align-items-center">
 
-                    <select class="select-icin bg-transparent text-white text-end border border-1 rounded-2 fs-5">
-                        <option value="">Türkçe</option>
-                        <option value="">İngilizce</option>
-                    </select>
-
-                    <i class="fa-solid fa-globe position-absolute"></i>
-
+                    <div class="custom-select-wrapper fs-5 bg-transparent">
+                        <select class="original-language-select">
+                            <option value="tr">Türkçe</option>
+                            <option value="en">İngilizce</option>
+                        </select>
+                        
+                        <div class="select-selected fs-5 bg-transparent">
+                            Türkçe
+                        </div>
+                        <div class="select-items fs-5 select-hide bg-transparent text-end">
+                            <div data-value="tr">Türkçe</div>
+                            <div data-value="en">İngilizce</div>
+                        </div>
+                    </div>
                     <a href="{% url "login_page" %}">
                         <button class="btn btn-danger button-ıcın">Oturum Aç</button>
                     </a>

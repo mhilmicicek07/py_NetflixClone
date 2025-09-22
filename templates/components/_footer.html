@@ -25,14 +25,65 @@
                 <a href="">Aut, impedit?</a>
                 <a href="">Atque, aspernatur!</a>
             </div>
+            <p class="fs-5 text-white mt-5">Mehmet'in Netflix'i</p> 
         </div>
+        
         <div class="d-flex gap-2 position-relative mt-3">
-            <select class="select-icin bg-transparent text-white text-end border border-1 rounded-2 fs-5">
-                <option value="">Türkçe</option>
-                <option value="">İngilizce</option>
-            </select>
-            <i class="fa-solid fa-globe position-absolute"></i>
+            <div class="custom-select-wrapper fs-5 bg-transparent">
+                 <select class="original-language-select">
+                    <option value="tr">Türkçe</option>
+                    <option value="en">İngilizce</option>
+                </select>
+                
+                <div class="select-selected fs-5 bg-transparent">
+                    Türkçe
+                </div>
+                <div class="select-items fs-5 select-hide bg-transparent text-end">
+                    <div data-value="tr">Türkçe</div>
+                    <div data-value="en">İngilizce</div>
+                </div>
+            </div>
         </div>
-        <p class="fs-5 text-white mt-2">Mehmet'in netflixi</p>
+        <p class="fs-5 text-white mt-5"></p> 
     </div>
+    
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const allCustomSelects = document.querySelectorAll('.custom-select-wrapper');
+
+    allCustomSelects.forEach(wrapper => {
+        const selected = wrapper.querySelector('.select-selected');
+        const items = wrapper.querySelector('.select-items');
+        const options = items.querySelectorAll('div');
+        const realSelect = wrapper.querySelector('.original-language-select');
+
+        selected.addEventListener('click', function (e) {
+            e.stopPropagation();
+            closeAllSelects(this);
+            items.classList.toggle('select-hide');
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', function () {
+                selected.textContent = this.textContent;
+                realSelect.value = this.getAttribute('data-value');
+                items.classList.add('select-hide');
+            });
+        });
+    });
+
+    function closeAllSelects(exceptThisOne) {
+        allCustomSelects.forEach(wrapper => {
+            const items = wrapper.querySelector('.select-items');
+            const selected = wrapper.querySelector('.select-selected');
+            if (selected !== exceptThisOne) {
+                items.classList.add('select-hide');
+            }
+        });
+    }
+
+    document.addEventListener('click', closeAllSelects);
+});
+</script>
