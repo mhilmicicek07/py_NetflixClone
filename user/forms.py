@@ -17,8 +17,6 @@ class UserLoginForm(forms.Form):
 
         return email
 
-
-
 class Register(UserCreationForm):
     class Meta:
         model = User
@@ -27,7 +25,6 @@ class Register(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-
         for fieldname in ['username','email','password1','password2']:
             self.fields[fieldname].help_text = None
 
@@ -35,7 +32,6 @@ class Register(UserCreationForm):
         self.fields['email'].widget = widgets.EmailInput(attrs={'class':'form-control', 'placeholder':'E-Mail'})
         self.fields['password1'].widget = widgets.PasswordInput(attrs={'class':'form-control','placeholder':'Passwrod'})
         self.fields['password2'].widget = widgets.PasswordInput(attrs={'class':'form-control','placeholder':'Password Again'})
-
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
@@ -47,7 +43,6 @@ class UserProfileForm(forms.ModelForm):
 
         self.fields['image'].widget = widgets.FileInput(attrs={'class':'form-control'})
         self.fields['name'].widget = widgets.TextInput(attrs={'class':'form-control'})
-
 
 class ChangeUserPassword(PasswordChangeForm):
     def __init__(self, *args, **kwargs):

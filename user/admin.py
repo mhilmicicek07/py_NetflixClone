@@ -5,5 +5,4 @@ from .models import *
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('name','owner','slug')
 
-
 admin.site.register(Profile, ProfileAdmin)

@@ -38,7 +38,6 @@ def login_view(request):
             'form' : form,
         })
     
-
 def register_view(request):
 
     if request.user.is_authenticated:
@@ -70,17 +69,14 @@ def logout_view(request):
     logout(request)
     return redirect('index_page')
 
-
 @login_required(login_url='/user/login/')
 def profiles_view(request):
 
     profiles = Profile.objects.filter(owner = request.user)
 
-    
     return render(request, 'user/profiles.html',{
         'profiles': profiles,
     })
-
 
 @login_required(login_url='/user/login/')
 def profile_add_view(request):
@@ -113,7 +109,6 @@ def profile_manage_view(request):
         'profiles': profiles,
     })
 
-
 @login_required(login_url='/user/login/')
 def profile_edit_view(request, profile_slug):
     
@@ -139,8 +134,6 @@ def profile_edit_view(request, profile_slug):
         'profile':profile,
     })
 
-
-
 @login_required(login_url='/user/login/')
 def profile_delete_view(request, profile_slug):
 
@@ -153,7 +146,6 @@ def profile_delete_view(request, profile_slug):
         return render(request, 'user/delete.html', {
             'profile': profile,
         })
-
 
 @login_required(login_url='/user/login/')
 def change_password_view(request,user_username):
