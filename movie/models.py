@@ -5,24 +5,23 @@ from autoslug import AutoSlugField
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
-    slug = AutoSlugField(populate_from = 'name')
+    slug = AutoSlugField(populate_from='name')
 
     def __str__(self):
         return self.name
-    
+ 
 class Genre(models.Model):
     name = models.CharField(max_length=30)
-    slug = AutoSlugField(populate_from = 'name')
+    slug = AutoSlugField(populate_from='name')
 
     def __str__(self):
         return self.name
-
 
 class Movies(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=300)
     image = models.FileField(upload_to='movie_pic')
-    slug = AutoSlugField(populate_from = 'name')
+    slug = AutoSlugField(populate_from='name')
     video = models.FileField(upload_to='movie_video')
     view_count = models.IntegerField(default=0)
 

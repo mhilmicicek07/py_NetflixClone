@@ -13,8 +13,6 @@ class MovieAdmin(admin.ModelAdmin):
         liste += '</ul>'
         return mark_safe(liste)
 
-
-
 admin.site.register(Category)
 admin.site.register(Genre)
 admin.site.register(Movies,MovieAdmin)
