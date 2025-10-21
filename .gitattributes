@@ -1,10 +1,11 @@
-# Python kodunu öncelikli göster
+# Python ana dil olarak gösterilsin
 *.py linguist-language=Python
 
-# Statik dosyaları analiz dışı bırak
+# HTML dosyalarını analiz dışında tut
+templates/* linguist-vendored
+*.html linguist-vendored
+
+# Statik ve medya dosyalarını analiz dışında tut
 static/* linguist-vendored
 staticfiles/* linguist-vendored
 media/* linguist-vendored
-
-# Ortam ve sistem dosyaları
-*.log linguist-vendored
