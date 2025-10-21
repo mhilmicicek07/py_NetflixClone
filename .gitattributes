@@ -1,9 +1,10 @@
-# Kod dili tanımlamaları (GitHub Linguist için)
+# Python kodunu öncelikli göster
 *.py linguist-language=Python
-*.html linguist-language=HTML
-*.css linguist-language=CSS
-*.js linguist-language=JavaScript
 
-# Statik dosyalar ve derlenmiş dosyalar analiz dışında kalsın
+# Statik dosyaları analiz dışı bırak
+static/* linguist-vendored
 staticfiles/* linguist-vendored
 media/* linguist-vendored
+
+# Ortam ve sistem dosyaları
+*.log linguist-vendored
