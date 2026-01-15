@@ -1,99 +1,82 @@
-# 🎬 py_NetflixClone Uygulaması  
+# 🎬 py_NetflixClone
 
-Bu proje, Netflix benzeri bir kullanıcı deneyimi sunmayı amaçlayan tam işlevli bir **film izleme platformu klonudur**.  
-Kullanıcılar, profil oluşturabilir, tür veya kategoriye göre film arayabilir ve popüler içerikleri görüntüleyebilir.  
-Proje, **Django** altyapısı kullanılarak geliştirilmiştir ve dinamik veri yönetimini destekler.  
+[TR: Türkçe](#türkçe) | [EN: English](#english) | [DE: Deutsch](#deutsch)
 
 ---
 
-## 🚀 Özellikler  
+## Türkçe
 
-- 👤 **Kullanıcı Yönetimi:** Kullanıcı kaydı, girişi ve profil oluşturma.  
-- 🎞️ **Film Yönetimi:** Filmler, kategoriler ve türlere göre filtreleme ve listeleme.  
-- 🔍 **Akıllı Arama:** Film adı, tür veya kategoriye göre dinamik arama özelliği.  
-- 🧩 **Bileşen Tabanlı Arayüz:** Navbar, footer, movie-card gibi modüler HTML bileşenleri.  
-- 🖼️ **Modern Görseller:** Netflix tarzı arayüz ve özel tasarlanmış statik kaynaklar.  
-- ⚙️ **Yönetici Paneli:** Django Admin üzerinden film, kullanıcı ve kategori yönetimi.  
+Bu proje, Netflix benzeri bir kullanıcı deneyimi sunmayı amaçlayan tam işlevli bir **film izleme platformu klonudur**. Kullanıcılar profil oluşturabilir, kategorilere göre filmleri listeleyebilir ve içerikleri izleyebilir.
 
----
+### 🚀 Özellikler
+- 👤 **Çoklu Profil Yönetimi:** Her kullanıcı için ayrı profiller oluşturma ve yönetme.
+- 🎞️ **Gelişmiş Film Yönetimi:** Kategoriler ve türler arası ilişkilendirme.
+- 🔍 **Dinamik Arama:** İsim, tür veya kategoriye göre hızlı arama.
+- 📺 **Video Oynatma:** Dahili video oynatıcı desteği.
+- ⚙️ **Yönetici Paneli:** Django Admin üzerinden tam kontrol.
 
-## 🧩 Kullanılan Teknolojiler  
+### 🛠️ Teknolojiler
+- **Backend:** Python 3 & Django
+- **Frontend:** HTML5, CSS3 (Modern Flexbox/Grid), JavaScript
+- **Veritabanı:** SQLite3
+- **Ekstra:** Django Autoslug (SEO uyumlu URL'ler)
 
-| Teknoloji | Rolü |
-|------------|-----------|
-| **Python 3 & Django** | Backend, veri yönetimi ve kullanıcı oturumları. |
-| **HTML5 & Django Templates** | Sayfa yapısı ve dinamik veri gösterimi. |
-| **CSS3** | Netflix tarzı modern arayüz. |
-| **JavaScript (ES6)** | Dinamik etkileşimler ve kullanıcı deneyimi. |
-| **SQLite3** | Varsayılan veritabanı olarak kullanılmıştır. |
-
----
-
-## 📂 Proje Dosya Yapısı  
-
-📁 py_NetflixClone  
-├── 📁 movie  
-│   ├── models.py  
-│   ├── views.py  
-│   ├── urls.py  
-│   └── templates/  
-├── 📁 user  
-│   ├── models.py  
-│   ├── forms.py  
-│   ├── views.py  
-│   └── urls.py  
-├── 📁 templates  
-│   ├── layout.html  
-│   └── components/  
-├── 📁 static  
-│   ├── css/style.css  
-│   ├── js/script.js  
-│   └── img/ (film görselleri)  
-├── db.sqlite3  
-├── manage.py  
-└── README.md  
+### 📂 Kurulum
+1. Repoyu klonlayın: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
+2. Gereksinimleri yükleyin: `pip install -r requirements.txt`
+3. Migrasyonları çalıştırın: `python manage.py migrate`
+4. Sunucuyu başlatın: `python manage.py runserver`
 
 ---
 
-## ⚙️ Kurulum ve Çalıştırma  
+## English
 
-Projeyi yerel ortamda çalıştırmak için aşağıdaki adımları izleyin:  
+This project is a fully functional **movie streaming platform clone** designed to provide a Netflix-like user experience. Users can create profiles, browse movies by category, and watch content.
 
-1. Depoyu klonlayın:  
-   ```bash
-   git clone https://github.com/mhilmicicek07/py_NetflixClone.git
-   cd py_NetflixClone
-Gerekli paketleri yükleyin:
+### 🚀 Features
+- 👤 **Multi-Profile Management:** Create and manage separate profiles for each user account.
+- 🎞️ **Advanced Movie Management:** Relationships between categories and genres.
+- 🔍 **Dynamic Search:** Fast search by name, genre, or category.
+- 📺 **Video Playback:** Integrated video player support.
+- ⚙️ **Admin Panel:** Full control via Django Admin.
 
+### 🛠️ Technologies
+- **Backend:** Python 3 & Django
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Database:** SQLite3
+- **Extras:** Django Autoslug (SEO-friendly URLs)
 
-pip install -r requirements.txt
-Veritabanı migrasyonlarını uygulayın:
+### 📂 Installation
+1. Clone the repo: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
+2. Install requirements: `pip install -r requirements.txt`
+3. Run migrations: `python manage.py migrate`
+4. Start server: `python manage.py runserver`
 
+---
 
-python manage.py migrate
-Geliştirme sunucusunu başlatın:
+## Deutsch
 
+Dieses Projekt ist ein voll funktionsfähiger **Klon einer Film-Streaming-Plattform**, der ein Netflix-ähnliches Benutzererlebnis bietet. Benutzer können Profile erstellen, Filme nach Kategorien durchsuchen und Inhalte ansehen.
 
-python manage.py runserver
-Tarayıcıdan şu adrese gidin:
+### 🚀 Funktionen
+- 👤 **Multi-Profil-Verwaltung:** Erstellen und Verwalten separater Profile für jedes Benutzerkonto.
+- 🎞️ **Erweiterte Filmverwaltung:** Verknüpfungen zwischen Kategorien und Genres.
+- 🔍 **Dynamische Suche:** Schnelle Suche nach Name, Genre oder Kategorie.
+- 📺 **Videowiedergabe:** Integrierte Videoplayer-Unterstützung.
+- ⚙️ **Admin-Panel:** Volle Kontrolle über Django Admin.
 
-http://127.0.0.1:8000/
-🧠 Teknik Açıklama
-Arama sistemi, Q nesneleri kullanılarak film adı, tür ve kategori alanlarında aynı anda arama yapar.
+### 🛠️ Technologien
+- **Backend:** Python 3 & Django
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Datenbank:** SQLite3
+- **Extras:** Django Autoslug (SEO-freundliche URLs)
 
-distinct() ile yinelenen sonuçlar önlenir.
+### 📂 Installation
+1. Repository klonen: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
+2. Anforderungen installieren: `pip install -r requirements.txt`
+3. Migrationen ausführen: `python manage.py migrate`
+4. Server starten: `python manage.py runserver`
 
-Template yapısı, her bileşenin ayrı HTML dosyasında tutulduğu modüler bir sistemdir.
-
-Static dosyalar, static/ klasöründe organize edilmiştir ve Django’nun collectstatic komutu ile yönetilir.
-
-👨‍💻 Geliştirici
-Mehmet Hilmi Çiçek
-💼 Full Stack Web Developer
-📍 Geislingen an der Steige
-
-“Basit ama tutarlı kod, karmaşık olandan her zaman üstündür.”
-
-🪪 Lisans
-Bu proje açık kaynaklıdır.
-Kodlar incelenebilir, geliştirilebilir veya kişisel projelerde referans olarak kullanılabilir.
+---
+👨‍💻 **Geliştirici / Developer:** Mehmet Hilmi Çiçek  
+📍 **Location:** Geislingen an der Steige, Germany
