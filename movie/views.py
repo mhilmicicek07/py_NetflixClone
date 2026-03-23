@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from user.models import *
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -7,7 +7,7 @@ from .models import *
 # Create your views here.
 #! Custom 404 Sayfası için
 def Page_404(request, exception):
-    return render(request, '404/404_page.html', {})
+    return render(request, '404/404_Page.html', {})
 
 def index_view(request):
     if request.user.is_authenticated:
@@ -16,7 +16,7 @@ def index_view(request):
 
 @login_required(login_url='/user/login/')
 def movies_view(request, profile_slug):
-    profile = Profile.objects.get(slug=profile_slug)
+    profile = get_object_or_404(Profile, slug=profile_slug, owner=request.user)
     movies = Movies.objects.all()
     categories = Category.objects.all()
     genres = Genre.objects.all()
@@ -53,7 +53,7 @@ def movies_view(request, profile_slug):
 
 @login_required(login_url='/user/login/')
 def movie_video_view(request, movie_slug):
-    movie = Movies.objects.get(slug=movie_slug)
+    movie = get_object_or_404(Movies, slug=movie_slug)
     movie.view_count += 1
     movie.save()
 
@@ -61,13 +61,14 @@ def movie_video_view(request, movie_slug):
         'movie': movie,
     })
 
+@login_required(login_url='/user/login/')
 def movies_type_view(request, profile_slug, slug):
+    profile = get_object_or_404(Profile, slug=profile_slug, owner=request.user)
     movies_category = Movies.objects.filter(category__slug=slug)
     movies_genre = Movies.objects.filter(genre__slug=slug)
 
     categories = Category.objects.all()
     genres = Genre.objects.all()
-    profile = Profile.objects.get(slug=profile_slug)
     profiles = request.user.profile_set.all()
 
     return render(request, 'movie/movies.html', {

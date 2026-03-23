@@ -21,11 +21,17 @@ Bu proje, Netflix benzeri bir kullanıcı deneyimi sunmayı amaçlayan tam işle
 - **Veritabanı:** SQLite3
 - **Ekstra:** Django Autoslug (SEO uyumlu URL'ler)
 
+### 🧰 Gereksinimler
+- Python 3.12+
+- `pip` ile kurulabilen paketler: Django 5.1.7, django-autoslug 1.9.9, Pillow 11.1.0 (tümü `requirements.txt` içinde listelenir)
+
 ### 📂 Kurulum
 1. Repoyu klonlayın: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
-2. Gereksinimleri yükleyin: `pip install -r requirements.txt`
-3. Migrasyonları çalıştırın: `python manage.py migrate`
-4. Sunucuyu başlatın: `python manage.py runserver`
+2. (Önerilen) Sanal ortam kurun ve aktifleştirin: `python -m venv .venv && source .venv/bin/activate`
+3. Gereksinimleri yükleyin: `pip install -r requirements.txt`
+4. Migrasyonları çalıştırın: `python manage.py migrate`
+5. Sunucuyu başlatın: `python manage.py runserver`
+6. Doğrulama için mevcut testleri çalıştırın: `python manage.py test`
 
 ---
 
@@ -46,11 +52,17 @@ This project is a fully functional **movie streaming platform clone** designed t
 - **Database:** SQLite3
 - **Extras:** Django Autoslug (SEO-friendly URLs)
 
+### 🧰 Requirements
+- Python 3.12+
+- Installable via `pip`: Django 5.1.7, django-autoslug 1.9.9, Pillow 11.1.0 (see `requirements.txt`)
+
 ### 📂 Installation
 1. Clone the repo: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
-2. Install requirements: `pip install -r requirements.txt`
-3. Run migrations: `python manage.py migrate`
-4. Start server: `python manage.py runserver`
+2. (Recommended) Create & activate a virtual env: `python -m venv .venv && source .venv/bin/activate`
+3. Install requirements: `pip install -r requirements.txt`
+4. Run migrations: `python manage.py migrate`
+5. Start server: `python manage.py runserver`
+6. Run existing tests for verification: `python manage.py test`
 
 ---
 
@@ -71,11 +83,17 @@ Dieses Projekt ist ein voll funktionsfähiger **Klon einer Film-Streaming-Plattf
 - **Datenbank:** SQLite3
 - **Extras:** Django Autoslug (SEO-freundliche URLs)
 
+### 🧰 Anforderungen
+- Python 3.12+
+- Über `pip` installierbar: Django 5.1.7, django-autoslug 1.9.9, Pillow 11.1.0 (siehe `requirements.txt`)
+
 ### 📂 Installation
 1. Repository klonen: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
-2. Anforderungen installieren: `pip install -r requirements.txt`
-3. Migrationen ausführen: `python manage.py migrate`
-4. Server starten: `python manage.py runserver`
+2. (Empfohlen) Virtuelle Umgebung anlegen & aktivieren: `python -m venv .venv && source .venv/bin/activate`
+3. Anforderungen installieren: `pip install -r requirements.txt`
+4. Migrationen ausführen: `python manage.py migrate`
+5. Server starten: `python manage.py runserver`
+6. Vorhandene Tests ausführen: `python manage.py test`
 
 ---
 👨‍💻 **Geliştirici / Developer:** Mehmet Hilmi Çiçek  
