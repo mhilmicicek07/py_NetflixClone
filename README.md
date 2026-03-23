@@ -23,7 +23,7 @@ Bu proje, Netflix benzeri bir kullanıcı deneyimi sunmayı amaçlayan tam işle
 
 ### 🧰 Gereksinimler
 - Python 3.12+
-- `pip` ile kurulabilen paketler: Django 5.1.7, django-autoslug 1.9.9, Pillow 11.1.0 (tümü `requirements.txt` içinde listelenir)
+- `pip` ile kurulabilen paketler: Django 5.1.15, django-autoslug 1.9.9, Pillow 12.1.1 (tümü `requirements.txt` içinde listelenir)
 
 ### 📂 Kurulum
 1. Repoyu klonlayın: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
@@ -54,7 +54,7 @@ This project is a fully functional **movie streaming platform clone** designed t
 
 ### 🧰 Requirements
 - Python 3.12+
-- Installable via `pip`: Django 5.1.7, django-autoslug 1.9.9, Pillow 11.1.0 (see `requirements.txt`)
+- Installable via `pip`: Django 5.1.15, django-autoslug 1.9.9, Pillow 12.1.1 (see `requirements.txt`)
 
 ### 📂 Installation
 1. Clone the repo: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
@@ -85,7 +85,7 @@ Dieses Projekt ist ein voll funktionsfähiger **Klon einer Film-Streaming-Plattf
 
 ### 🧰 Anforderungen
 - Python 3.12+
-- Über `pip` installierbar: Django 5.1.7, django-autoslug 1.9.9, Pillow 11.1.0 (siehe `requirements.txt`)
+- Über `pip` installierbar: Django 5.1.15, django-autoslug 1.9.9, Pillow 12.1.1 (siehe `requirements.txt`)
 
 ### 📂 Installation
 1. Repository klonen: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
