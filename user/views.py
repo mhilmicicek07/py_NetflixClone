@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.contrib.auth import login,authenticate,logout, update_session_auth_hash
@@ -17,7 +17,8 @@ def login_view(request):
             email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password')
 
-            username =  User.objects.get(email = email).username
+            user_obj = User.objects.filter(email__iexact=email).order_by('id').first()
+            username = user_obj.username if user_obj else None
 
             user = authenticate(request, username = username, password = password)
 
@@ -25,6 +26,7 @@ def login_view(request):
                 login(request, user)
                 return redirect('profiles_page')
             else:
+                form.add_error(None, 'E-posta veya şifre hatalı.')
                 return render(request, 'user/login.html', {
                     'form' : form,
                 })
@@ -46,7 +48,7 @@ def register_view(request):
     if request.method == 'POST':
         form = Register(request.POST)
 
-        if form.is_valid:
+        if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password2')
@@ -55,7 +57,6 @@ def register_view(request):
             login(request,user)
             return redirect('profiles_page')
         else:
-            form = Register()
             return render(request, 'user/register.html', {
                 'form': form,
             })
@@ -112,7 +113,7 @@ def profile_manage_view(request):
 @login_required(login_url='/user/login/')
 def profile_edit_view(request, profile_slug):
     
-    profile = Profile.objects.get(slug = profile_slug)
+    profile = get_object_or_404(Profile, slug=profile_slug, owner=request.user)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=profile)
@@ -137,7 +138,7 @@ def profile_edit_view(request, profile_slug):
 @login_required(login_url='/user/login/')
 def profile_delete_view(request, profile_slug):
 
-    profile = Profile.objects.get(slug=profile_slug)
+    profile = get_object_or_404(Profile, slug=profile_slug, owner=request.user)
 
     if request.method == 'POST':
         profile.delete()
@@ -148,7 +149,7 @@ def profile_delete_view(request, profile_slug):
         })
 
 @login_required(login_url='/user/login/')
-def change_password_view(request,user_username):
+def change_password_view(request,user_username=None):
 
     if request.method == 'POST':
         form = ChangeUserPassword(request.user, request.POST)

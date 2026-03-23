@@ -12,7 +12,7 @@ class UserLoginForm(forms.Form):
     def clean_email(self,*args, **kwargs):
         email = self.cleaned_data.get('email')
 
-        if not User.objects.filter(email = email).exists():
+        if not User.objects.filter(email__iexact=email).exists():
             self.add_error('email','Bu E-Mail Mevcut Değil')
 
         return email
@@ -30,7 +30,7 @@ class Register(UserCreationForm):
 
         self.fields['username'].widget = widgets.TextInput(attrs={'class':'form-control','placeholder':'Username'})
         self.fields['email'].widget = widgets.EmailInput(attrs={'class':'form-control', 'placeholder':'E-Mail'})
-        self.fields['password1'].widget = widgets.PasswordInput(attrs={'class':'form-control','placeholder':'Passwrod'})
+        self.fields['password1'].widget = widgets.PasswordInput(attrs={'class':'form-control','placeholder':'Password'})
         self.fields['password2'].widget = widgets.PasswordInput(attrs={'class':'form-control','placeholder':'Password Again'})
 
 class UserProfileForm(forms.ModelForm):
