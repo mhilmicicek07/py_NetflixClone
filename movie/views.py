@@ -7,7 +7,7 @@ from .models import *
 # Create your views here.
 #! Custom 404 Sayfası için
 def Page_404(request, exception):
-    return render(request, '404/404_Page.html', {})
+    return render(request, '404/404_Page.html', status=404)
 
 def index_view(request):
     if request.user.is_authenticated:

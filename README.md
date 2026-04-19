@@ -32,6 +32,7 @@ Bu proje, Netflix benzeri bir kullanıcı deneyimi sunmayı amaçlayan tam işle
 4. Migrasyonları çalıştırın: `python manage.py migrate`
 5. Sunucuyu başlatın: `python manage.py runserver`
 6. Doğrulama için mevcut testleri çalıştırın: `python manage.py test`
+7. **Önemli düzeltmeler:** `DJANGO_SETTINGS_MODULE` artık `py_NetflixClone.settings` değerini kullanır; ASGI/WSGI dağıtımlarında bu değeri ortam değişkeni olarak ayarlayın. Özel 404 sayfası doğru 404 durum koduyla döner.
 
 ---
 
@@ -63,6 +64,7 @@ This project is a fully functional **movie streaming platform clone** designed t
 4. Run migrations: `python manage.py migrate`
 5. Start server: `python manage.py runserver`
 6. Run existing tests for verification: `python manage.py test`
+7. **Important fixes:** `DJANGO_SETTINGS_MODULE` now points to `py_NetflixClone.settings`; set this value for ASGI/WSGI deployments. The custom 404 page now returns a proper 404 status code.
 
 ---
 
@@ -94,6 +96,7 @@ Dieses Projekt ist ein voll funktionsfähiger **Klon einer Film-Streaming-Plattf
 4. Migrationen ausführen: `python manage.py migrate`
 5. Server starten: `python manage.py runserver`
 6. Vorhandene Tests ausführen: `python manage.py test`
+7. **Wichtige Korrekturen:** `DJANGO_SETTINGS_MODULE` verweist nun auf `py_NetflixClone.settings`; setzen Sie diesen Wert für ASGI/WSGI-Bereitstellungen. Die benutzerdefinierte 404-Seite liefert jetzt korrekt den Statuscode 404.
 
 ---
 👨‍💻 **Geliştirici / Developer:** Mehmet Hilmi Çiçek  
