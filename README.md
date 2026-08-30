@@ -1,4 +1,4 @@
-# 🎬 py_NetflixClone
+# py_NetflixClone
 
 [TR: Türkçe](#türkçe) | [EN: English](#english) | [DE: Deutsch](#deutsch)
 
@@ -6,98 +6,192 @@
 
 ## Türkçe
 
-Bu proje, Netflix benzeri bir kullanıcı deneyimi sunmayı amaçlayan tam işlevli bir **film izleme platformu klonudur**. Kullanıcılar profil oluşturabilir, kategorilere göre filmleri listeleyebilir ve içerikleri izleyebilir.
+Bu proje, Netflix benzeri bir kullanıcı deneyimi sunmayı amaçlayan **film izleme platformu klonudur**. Kullanıcılar kayıt olabilir, profil oluşturabilir, kategorilere ve türlere göre filmleri listeleyebilir, arama yapabilir ve içerikleri izleyebilir.
 
-### 🚀 Özellikler
-- 👤 **Çoklu Profil Yönetimi:** Her kullanıcı için ayrı profiller oluşturma ve yönetme.
-- 🎞️ **Gelişmiş Film Yönetimi:** Kategoriler ve türler arası ilişkilendirme.
-- 🔍 **Dinamik Arama:** İsim, tür veya kategoriye göre hızlı arama.
-- 📺 **Video Oynatma:** Dahili video oynatıcı desteği.
-- ⚙️ **Yönetici Paneli:** Django Admin üzerinden tam kontrol.
+### Özellikler
 
-### 🛠️ Teknolojiler
-- **Backend:** Python 3 & Django
-- **Frontend:** HTML5, CSS3 (Modern Flexbox/Grid), JavaScript
+- **Kimlik Doğrulama:** E-posta ile kayıt, giriş, çıkış ve şifre değiştirme.
+- **Profil Yönetimi:** Her hesap için birden fazla profil oluşturma, düzenleme ve silme (profil resmi desteği ile).
+- **Film Listeleme:** Kategoriye veya türe göre filtreleme.
+- **Arama:** İsim, kategori veya türe göre film arama.
+- **Video Oynatma:** Seçili filme ait video oynatma sayfası; her izlemede görüntülenme sayısı artar.
+- **Yönetici Paneli:** Django Admin üzerinden tam içerik yönetimi.
+- **Özel 404 Sayfası:** Doğru HTTP 404 durum kodu ile özelleştirilmiş hata sayfası.
+
+### Teknolojiler
+
+- **Backend:** Python 3 & Django 5.1
+- **Frontend:** HTML5, CSS3, JavaScript
 - **Veritabanı:** SQLite3
-- **Ekstra:** Django Autoslug (SEO uyumlu URL'ler)
+- **Bağımlılıklar:** django-autoslug (SEO uyumlu URL'ler), Pillow (görsel yükleme)
 
-### 🧰 Gereksinimler
-- Python 3.12+
-- `pip` ile kurulabilen paketler: Django 5.1.15, django-autoslug 1.9.9, Pillow 12.1.1 (tümü `requirements.txt` içinde listelenir)
+### Gereksinimler
 
-### 📂 Kurulum
-1. Repoyu klonlayın: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
-2. (Önerilen) Sanal ortam kurun ve aktifleştirin: `python -m venv .venv && source .venv/bin/activate`
-3. Gereksinimleri yükleyin: `pip install -r requirements.txt`
-4. Migrasyonları çalıştırın: `python manage.py migrate`
-5. Sunucuyu başlatın: `python manage.py runserver`
-6. Doğrulama için mevcut testleri çalıştırın: `python manage.py test`
-7. **Önemli düzeltmeler:** `DJANGO_SETTINGS_MODULE` artık `py_NetflixClone.settings` değerini kullanır; ASGI/WSGI dağıtımlarında bu değeri ortam değişkeni olarak ayarlayın. Özel 404 sayfası doğru 404 durum koduyla döner.
+- Python 3.10+
+- pip
+
+### Kurulum
+
+1. Repoyu klonlayın:
+   ```bash
+   git clone https://github.com/mhilmicicek07/py_NetflixClone.git
+   cd py_NetflixClone
+   ```
+2. (Önerilen) Sanal ortam oluşturun ve aktifleştirin:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # Windows: .venv\Scripts\activate
+   ```
+3. Bağımlılıkları yükleyin:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Veritabanı migrasyonlarını uygulayın:
+   ```bash
+   python manage.py migrate
+   ```
+5. (İsteğe bağlı) Yönetici kullanıcısı oluşturun:
+   ```bash
+   python manage.py createsuperuser
+   ```
+6. Geliştirme sunucusunu başlatın:
+   ```bash
+   python manage.py runserver
+   ```
+
+Uygulama `http://127.0.0.1:8000/` adresinde çalışır.
+
+### Ortam Değişkenleri
+
+ASGI/WSGI dağıtımlarında `DJANGO_SETTINGS_MODULE` değişkenini `py_NetflixClone.settings` olarak ayarlayın. `settings.py` içindeki `SECRET_KEY` üretim ortamında güvenli bir değerle değiştirilmelidir.
 
 ---
 
 ## English
 
-This project is a fully functional **movie streaming platform clone** designed to provide a Netflix-like user experience. Users can create profiles, browse movies by category, and watch content.
+This project is a **movie streaming platform clone** designed to provide a Netflix-like user experience. Users can register, create profiles, browse and search movies by category or genre, and watch content.
 
-### 🚀 Features
-- 👤 **Multi-Profile Management:** Create and manage separate profiles for each user account.
-- 🎞️ **Advanced Movie Management:** Relationships between categories and genres.
-- 🔍 **Dynamic Search:** Fast search by name, genre, or category.
-- 📺 **Video Playback:** Integrated video player support.
-- ⚙️ **Admin Panel:** Full control via Django Admin.
+### Features
 
-### 🛠️ Technologies
-- **Backend:** Python 3 & Django
+- **Authentication:** Register, log in, log out, and change password using email-based login.
+- **Profile Management:** Create, edit, and delete multiple profiles per account (with profile image upload).
+- **Movie Browsing:** Filter movies by category or genre.
+- **Search:** Search movies by name, category, or genre.
+- **Video Playback:** Dedicated video page per movie; view count increments on each watch.
+- **Admin Panel:** Full content management via Django Admin.
+- **Custom 404 Page:** Returns a proper HTTP 404 status code.
+
+### Technologies
+
+- **Backend:** Python 3 & Django 5.1
 - **Frontend:** HTML5, CSS3, JavaScript
 - **Database:** SQLite3
-- **Extras:** Django Autoslug (SEO-friendly URLs)
+- **Dependencies:** django-autoslug (SEO-friendly slugs), Pillow (image uploads)
 
-### 🧰 Requirements
-- Python 3.12+
-- Installable via `pip`: Django 5.1.15, django-autoslug 1.9.9, Pillow 12.1.1 (see `requirements.txt`)
+### Requirements
 
-### 📂 Installation
-1. Clone the repo: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
-2. (Recommended) Create & activate a virtual env: `python -m venv .venv && source .venv/bin/activate`
-3. Install requirements: `pip install -r requirements.txt`
-4. Run migrations: `python manage.py migrate`
-5. Start server: `python manage.py runserver`
-6. Run existing tests for verification: `python manage.py test`
-7. **Important fixes:** `DJANGO_SETTINGS_MODULE` now points to `py_NetflixClone.settings`; set this value for ASGI/WSGI deployments. The custom 404 page now returns a proper 404 status code.
+- Python 3.10+
+- pip
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mhilmicicek07/py_NetflixClone.git
+   cd py_NetflixClone
+   ```
+2. (Recommended) Create and activate a virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # Windows: .venv\Scripts\activate
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Apply database migrations:
+   ```bash
+   python manage.py migrate
+   ```
+5. (Optional) Create an admin user:
+   ```bash
+   python manage.py createsuperuser
+   ```
+6. Start the development server:
+   ```bash
+   python manage.py runserver
+   ```
+
+The application runs at `http://127.0.0.1:8000/`.
+
+### Environment Variables
+
+For ASGI/WSGI deployments, set `DJANGO_SETTINGS_MODULE` to `py_NetflixClone.settings`. The `SECRET_KEY` in `settings.py` must be replaced with a secure value in production.
 
 ---
 
 ## Deutsch
 
-Dieses Projekt ist ein voll funktionsfähiger **Klon einer Film-Streaming-Plattform**, der ein Netflix-ähnliches Benutzererlebnis bietet. Benutzer können Profile erstellen, Filme nach Kategorien durchsuchen und Inhalte ansehen.
+Dieses Projekt ist ein **Klon einer Film-Streaming-Plattform**, der ein Netflix-ähnliches Benutzererlebnis bietet. Benutzer können sich registrieren, Profile anlegen, Filme nach Kategorie oder Genre durchsuchen und Inhalte ansehen.
 
-### 🚀 Funktionen
-- 👤 **Multi-Profil-Verwaltung:** Erstellen und Verwalten separater Profile für jedes Benutzerkonto.
-- 🎞️ **Erweiterte Filmverwaltung:** Verknüpfungen zwischen Kategorien und Genres.
-- 🔍 **Dynamische Suche:** Schnelle Suche nach Name, Genre oder Kategorie.
-- 📺 **Videowiedergabe:** Integrierte Videoplayer-Unterstützung.
-- ⚙️ **Admin-Panel:** Volle Kontrolle über Django Admin.
+### Funktionen
 
-### 🛠️ Technologien
-- **Backend:** Python 3 & Django
+- **Authentifizierung:** Registrierung, Anmeldung, Abmeldung und Passwortänderung per E-Mail-Login.
+- **Profilverwaltung:** Mehrere Profile pro Konto erstellen, bearbeiten und löschen (mit Profilbild-Upload).
+- **Film-Browsing:** Filme nach Kategorie oder Genre filtern.
+- **Suche:** Filme nach Name, Kategorie oder Genre suchen.
+- **Videowiedergabe:** Eigene Videoseite pro Film; Aufrufzähler wird bei jedem Aufruf erhöht.
+- **Admin-Panel:** Vollständige Inhaltsverwaltung über Django Admin.
+- **Benutzerdefinierte 404-Seite:** Gibt korrekt den HTTP-Statuscode 404 zurück.
+
+### Technologien
+
+- **Backend:** Python 3 & Django 5.1
 - **Frontend:** HTML5, CSS3, JavaScript
 - **Datenbank:** SQLite3
-- **Extras:** Django Autoslug (SEO-freundliche URLs)
+- **Abhängigkeiten:** django-autoslug (SEO-freundliche Slugs), Pillow (Bild-Uploads)
 
-### 🧰 Anforderungen
-- Python 3.12+
-- Über `pip` installierbar: Django 5.1.15, django-autoslug 1.9.9, Pillow 12.1.1 (siehe `requirements.txt`)
+### Anforderungen
 
-### 📂 Installation
-1. Repository klonen: `git clone https://github.com/mhilmicicek07/py_NetflixClone.git`
-2. (Empfohlen) Virtuelle Umgebung anlegen & aktivieren: `python -m venv .venv && source .venv/bin/activate`
-3. Anforderungen installieren: `pip install -r requirements.txt`
-4. Migrationen ausführen: `python manage.py migrate`
-5. Server starten: `python manage.py runserver`
-6. Vorhandene Tests ausführen: `python manage.py test`
-7. **Wichtige Korrekturen:** `DJANGO_SETTINGS_MODULE` verweist nun auf `py_NetflixClone.settings`; setzen Sie diesen Wert für ASGI/WSGI-Bereitstellungen. Die benutzerdefinierte 404-Seite liefert jetzt korrekt den Statuscode 404.
+- Python 3.10+
+- pip
+
+### Installation
+
+1. Repository klonen:
+   ```bash
+   git clone https://github.com/mhilmicicek07/py_NetflixClone.git
+   cd py_NetflixClone
+   ```
+2. (Empfohlen) Virtuelle Umgebung anlegen und aktivieren:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # Windows: .venv\Scripts\activate
+   ```
+3. Abhängigkeiten installieren:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Datenbankmigrationen anwenden:
+   ```bash
+   python manage.py migrate
+   ```
+5. (Optional) Admin-Benutzer erstellen:
+   ```bash
+   python manage.py createsuperuser
+   ```
+6. Entwicklungsserver starten:
+   ```bash
+   python manage.py runserver
+   ```
+
+Die Anwendung läuft unter `http://127.0.0.1:8000/`.
+
+### Umgebungsvariablen
+
+Für ASGI/WSGI-Deployments muss `DJANGO_SETTINGS_MODULE` auf `py_NetflixClone.settings` gesetzt werden. Der `SECRET_KEY` in `settings.py` muss in der Produktion durch einen sicheren Wert ersetzt werden.
 
 ---
-👨‍💻 **Geliştirici / Developer:** Mehmet Hilmi Çiçek  
+
+👨‍💻 **Geliştirici / Developer:** Mehmet Hilmi Çiçek
 📍 **Location:** Geislingen an der Steige, Germany
